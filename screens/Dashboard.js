@@ -18,6 +18,10 @@ class Dashboard extends Component {
     const WifiIcon = Settings["wi-fi"].icon;
     const ElectIcon = Settings["electricity"].icon;
     return (
+      <ScrollView
+      contentContainerStyle={styles.buttons}
+      showsVerticalScrollIndicator={false}
+    >
       <Block style={styles.dashboard}>
         <Block column style={styles.dashboard.marginVertical}>
           <Text welcome>Welcome</Text>
@@ -41,10 +45,7 @@ class Dashboard extends Component {
           </Block>
         </Block>
 
-        <ScrollView
-          contentContainerStyle={styles.buttons}
-          showsVerticalScrollIndicator={false}
-        >
+       
           <Block flex={0} column space="between">
             <Block row space="around" style={styles.dashboard.marginVertical}>
               <TouchableOpacity
@@ -132,8 +133,9 @@ class Dashboard extends Component {
               </TouchableOpacity>
             </Block>
           </Block>
-        </ScrollView>
+      
       </Block>
+      </ScrollView>
     );
   }
 }
