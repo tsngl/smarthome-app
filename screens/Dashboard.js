@@ -18,103 +18,122 @@ class Dashboard extends Component {
     const WifiIcon = Settings["wi-fi"].icon;
     const ElectIcon = Settings["electricity"].icon;
     return (
-      <ScrollView
-        contentContainerStyle={styles.dashboard}
-        style={{ flex: 1 }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Block style={styles.dashboard}>
-          <Block column style={styles.dashboard.marginVertical}>
-            <Text welcome>Welcome</Text>
-            <Text name>Tsengelmaa</Text>
-          </Block>
+      <Block style={styles.dashboard}>
+        <Block column style={styles.dashboard.marginVertical}>
+          <Text welcome>Welcome</Text>
+          <Text name>Tsengelmaa</Text>
         </Block>
 
         <Block row style={{ paddingVertical: 10 }}>
           <Block flex={1.5} row style={{ alignItems: "flex-end" }}>
             <Text h1>34</Text>
-            <Text h1 size={34} height={80} weight={"600"} spacing={0.1}>
+            <Text h1 size={34} height={80} weight="600" spacing={0.1}>
               °C
             </Text>
           </Block>
-          <Block flex={1} column>
+          <Block
+            flex={1}
+            column
+            style={{ paddingHorizontal: theme.sizes.base }}
+          >
             <Text caption>Humidity</Text>
             <Text>Chart</Text>
           </Block>
         </Block>
 
-        <Block flex={0} column space="between">
-          <Block row space="around" style={styles.dashboard.marginVertical}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => navigation.navigate("Settings", { name: "Light" })}
-            >
-              <Block center middle style={styles.button}>
-                <LightIcon size={38} />
-                <Text button>{Settings["light"].name}</Text>
-              </Block>
-            </TouchableOpacity>
+        <ScrollView
+          contentContainerStyle={styles.buttons}
+          showsVerticalScrollIndicator={false}
+        >
+          <Block flex={0} column space="between">
+            <Block row space="around" style={styles.dashboard.marginVertical}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Settings", { name: "light" })
+                }
+              >
+                <Block center middle style={styles.button}>
+                  <LightIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["light"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => navigation.navigate("Settings", { name: "AC" })}
-            >
-              <Block center middle style={styles.button}>
-                <AcIcon size={38} />
-                <Text button>{Settings["ac"].name}</Text>
-              </Block>
-            </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate("Settings", { name: "ac" })}
+              >
+                <Block center middle style={styles.button}>
+                  <AcIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["ac"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+            </Block>
+
+            <Block row space="around" style={styles.dashboard.marginVertical}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Settings", { name: "temperature" })
+                }
+              >
+                <Block center middle style={styles.button}>
+                  <TempIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["temperature"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate("Settings", { name: "fan" })}
+              >
+                <Block center middle style={styles.button}>
+                  <FanIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["fan"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+            </Block>
+
+            <Block row space="around" style={styles.dashboard.marginVertical}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Settings", { name: "wi-fi" })
+                }
+              >
+                <Block center middle style={styles.button}>
+                  <WifiIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["wi-fi"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Settings", { name: "electricity" })
+                }
+              >
+                <Block center middle style={styles.button}>
+                  <ElectIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {Settings["electricity"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+            </Block>
           </Block>
-
-          <Block row space="around" style={styles.dashboard.marginVertical}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() =>
-                navigation.navigate("Settings", { name: "Temperature" })
-              }
-            >
-              <Block center middle style={styles.button}>
-                <TempIcon size={38} />
-                <Text button>{Settings["temperature"].name}</Text>
-              </Block>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => navigation.navigate("Settings", { name: "Fan" })}
-            >
-              <Block center middle style={styles.button}>
-                <FanIcon size={38} />
-                <Text button>{Settings["fan"].name}</Text>
-              </Block>
-            </TouchableOpacity>
-          </Block>
-
-          <Block row space="around" style={styles.dashboard.marginVertical}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => navigation.navigate("Settings", { name: "Wi-Fi" })}
-            >
-              <Block center middle style={styles.button}>
-                <WifiIcon size={38} />
-                <Text button>{Settings["wi-fi"].name}</Text>
-              </Block>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() =>
-                navigation.navigate("Settings", { name: "Electricity" })
-              }
-            >
-              <Block center middle style={styles.button}>
-                <ElectIcon size={38} />
-                <Text button>{Settings["electricity"].name}</Text>
-              </Block>
-            </TouchableOpacity>
-          </Block>
-        </Block>
-      </ScrollView>
+        </ScrollView>
+      </Block>
     );
   }
 }
